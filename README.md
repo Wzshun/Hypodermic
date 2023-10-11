@@ -39,3 +39,11 @@ Some comparative benchmarks are available on the wiki, [check them out](https://
 Hypodermic was started with the will to mimic the famous .NET Autofac http://autofac.org/. Although its design evolved, both its behavior and its expressiveness tend to remain the same.
 
 Constructor deduction has been made possible thanks to the work of [Krzysztof Jusiak](http://krzysztof.jusiak.net/) in http://boost-experimental.github.io/di/.
+
+---
+---
+
+# Modified
+- without use boost
+- introduce `sigslot::signal`
+- add `xmake` to build, also add an example, and it ignores `Hypodermic.Tests` and `cpack`. So, if you want build it with cmake, you should change corresponding `cmakelist.txt`.
