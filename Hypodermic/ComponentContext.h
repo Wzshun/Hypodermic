@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 
-#include <boost/range/adaptor/reversed.hpp>
+//#include <boost/range/adaptor/reversed.hpp>
 
 #include "Hypodermic/AutowireableConstructor.h"
 #include "Hypodermic/Behavior.h"
@@ -89,12 +89,17 @@ namespace Hypodermic
 
             if (registrationContexts.empty())
                 return nullptr;
-
-            for (auto&& registrationContext : boost::adaptors::reverse(registrationContexts))
+            for(auto iter = registrationContexts.rbegin(); iter != registrationContexts.rend(); ++iter)
             {
-                if (!registrationContext->registration()->isFallback())
+                auto&& registrationContext = *iter;
+                if (!registrationContext->registration()->isFallback() )
                     return resolveErasedType(typeAliasKey, registrationContext);
             }
+            // for (auto&& registrationContext : boost::adaptors::reverse(registrationContexts))
+            // {
+            //     if (!registrationContext->registration()->isFallback())
+            //         return resolveErasedType(typeAliasKey, registrationContext);
+            // }
 
             return resolveErasedType(typeAliasKey, registrationContexts.back());
         }

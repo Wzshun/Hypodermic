@@ -4,7 +4,8 @@
 #include <memory>
 #include <vector>
 
-#include <boost/signals2.hpp>
+//#include <boost/signals2.hpp>
+#include "sigslot/signal.hpp"
 
 #include "Hypodermic/ActivationHandlers.h"
 #include "Hypodermic/InstanceFactory.h"
@@ -51,7 +52,8 @@ namespace Hypodermic
     private:
         const IRegistration& m_registration;
         InstanceFactory m_instanceFactory;
-        boost::signals2::signal< void(ComponentContext&, const std::shared_ptr< void >&) > m_activated;
+        //boost::signals2::signal< void(ComponentContext&, const std::shared_ptr< void >&) > m_activated;
+        sigslot::signal< ComponentContext&, const std::shared_ptr<void>& > m_activated;
     };
 
 } // namespace Hypodermic

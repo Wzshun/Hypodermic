@@ -3,7 +3,8 @@
 #include <functional>
 #include <memory>
 
-#include <boost/signals2.hpp>
+//#include <boost/signals2.hpp>
+#include "sigslot/signal.hpp"
 
 
 namespace Hypodermic
@@ -18,7 +19,8 @@ namespace Hypodermic
     class IRegistrationDescriptor
     {
     public:
-        typedef boost::signals2::signal< void(const std::shared_ptr< IRegistrationDescriptor >&) > Updated;
+        //typedef boost::signals2::signal< void(const std::shared_ptr< IRegistrationDescriptor >&) > Updated;
+        typedef sigslot::signal< const std::shared_ptr<IRegistrationDescriptor>& > Updated;
 
     public:
         virtual ~IRegistrationDescriptor() = default;

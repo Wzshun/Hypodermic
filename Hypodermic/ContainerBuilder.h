@@ -191,7 +191,7 @@ namespace Hypodermic
             registrationDescriptor->registrationDescriptorUpdated().connect([this, weakDescriptor](const std::shared_ptr< IRegistrationDescriptor >& x)
             {
                 auto descriptor = weakDescriptor.lock();
-                descriptor->registrationDescriptorUpdated().disconnect_all_slots();
+                descriptor->registrationDescriptorUpdated().disconnect_all();
 
                 m_buildActions.erase(descriptor);
                 m_registrationDescriptors.insert

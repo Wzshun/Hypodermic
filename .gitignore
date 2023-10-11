@@ -11,3 +11,10 @@ obj/**
 *ReSharper*
 *.VC.*
 .vs/*
+
+# xmake cache
+.xmake/
+build/
+
+# vscode cache
+.vscode/
